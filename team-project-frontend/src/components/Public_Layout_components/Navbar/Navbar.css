@@ -1,0 +1,100 @@
+.nav {
+  background-color: #5d3585;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #fddde5;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.nav-logo:hover {
+  transform: scale(1.08);
+}
+
+.public-nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-btn {
+  background-color: transparent;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  color: #fddde5;
+}
+
+.nav-btn:hover,
+.nav-btn.active {
+  background-color: #a166af;
+  color: #fddde5;
+}
+.nav-btn-register {
+  background-color: #FDDDE5;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  color: #a166af;
+}
+.nav-btn-register:hover,
+.nav-btn-register.active {
+  background-color: #a166af;
+  color: #fddde5;
+}
+
+.nav-link {
+  color: #fddde5;
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background-color: #dd738e;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+  color: #dd738e;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+.nav-link.active {
+  color: #dd738e;
+}
+
+.nav-link.active::after {
+  transform: scaleX(1);
+}

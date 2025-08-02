@@ -1,0 +1,23 @@
+.footer {
+  background-color: #5d3585;
+  align-items: center; /* توسيط عمودي */
+  justify-content: center; /* توسيط أفقي */
+  text-align: center;
+  padding: 1.2rem 0;
+  font-size: 1rem;
+  color: #fddde5;
+  width: 100%;
+}
+.footer p {
+  color: #FDDDE5;
+}
+.footer .dev-name {
+  font-weight: bold;
+  color: #FDDDE5;
+  transition: color 0.3s ease;
+}
+
+.footer .dev-name:hover {
+  color: #dd738e;
+  cursor: pointer;
+}
