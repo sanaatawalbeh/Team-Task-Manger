@@ -1,0 +1,136 @@
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem 2rem 6rem;
+  color: #faf3dd;
+  text-align: center;
+  background-color: #392365;
+}
+
+.hero-text {
+  max-width: 900px;
+  margin-bottom: 3rem;
+}
+
+.hero-title {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+  color: #FDDDE5; 
+}
+
+.hero-subtitle {
+  font-size: 1.65rem;
+  margin-bottom: 3rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5;
+  color: #FDDDE5;
+  font-weight: 600;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+/* .btn-primary {
+  background-color: #A166AF;
+  color: #FDDDE5;
+  border: none;
+  padding: 1.25rem 3rem;
+  font-size: 1.3rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #a167a1AF;
+  transform: scale(1.05);
+} */
+.btn-primary {
+  background-color: #A166AF;
+  color: #FDDDE5;
+  border: none;
+  padding: 1.25rem 3rem;
+  font-size: 1.3rem;
+  border-radius: 30px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  transition: background-color 0.3s ease;
+  position: relative;
+}
+
+.arrow-icon {
+  display: inline-flex;
+  opacity: 0;
+  transform: translateX(0px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #8f4c9e;
+}
+
+.btn-primary:hover .arrow-icon {
+  opacity: 1;
+  transform: translateX(6px);
+}
+
+
+
+.btn-secondary {
+  background-color: transparent;
+  border: 2.5px solid #A166AF;
+  color: #FDDDE5;
+  padding: 1.25rem 3rem;
+  font-size: 1.3rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #A166AF;
+  transform: scale(1.05);
+}
+
+.planning-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: 4rem;
+  padding: 2rem;
+  border-radius: 16px;
+}
+
+.planning-img {
+  width: 60%;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-left: 0px;
+}
+
+.planning-text {
+  width: 40%;
+}
+
+.planning-text h2 {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  color: #FDDDE5;
+}
+
+.planning-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #FDDDE5;
+}

@@ -1,0 +1,151 @@
+.about-container {
+  background-color: #392365;
+  padding: 5rem 2rem;
+  font-family: "Segoe UI", sans-serif;
+  color: #fddde5;
+}
+
+.about-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.about-header h1 {
+  font-size: 3rem;
+  color: #fddde5;
+  margin-bottom: 1rem;
+}
+
+.about-header p {
+  font-size: 1.2rem;
+  color: #fddde5;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.feature-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; 
+  gap: 2rem;
+  margin-bottom: 5rem;
+}
+
+
+
+
+.feature-card {
+  flex: 1 1 280px; 
+  max-width: 320px;
+  background-color: rgba(254, 248, 255, 0.15);
+  padding: 2rem;
+  border-radius: 1.5rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(161, 102, 175, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 270px;
+}
+
+
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+  font-size: 2rem;
+  color: #fddde5;
+margin: auto;
+}
+
+.feature-card h3 {
+  font-size: 1.25rem;
+  color: #fddde5;
+  margin-bottom: 0.5rem;
+}
+
+.feature-card p {
+  font-size: 0.95rem;
+  color: #fddde5;
+  line-height: 1.6;
+}
+
+.services-header {
+  text-align: center;
+  margin: 3rem 0 2rem;
+}
+
+.services-header h2 {
+  font-size: 2.5rem;
+  color: #fddde5;
+}
+
+.services-header p {
+  font-size: 1.1rem;
+  color: #fddde5;
+}
+
+/* Why Choose Us Card */
+.why-choose-us-card {
+  margin: 5rem auto 3rem;
+  padding: 2.5rem 3rem;
+  max-width: 900px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.why-choose-us-card h2 {
+  font-size: 2.3rem;
+  color: #fce1ff;
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.why-choose-us-card h2:hover {
+  transform: scale(1.05);
+  color: #ffffff;  
+}
+
+
+.why-choose-us-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.why-choose-us-card li {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  justify-content: flex-start;
+  color: #f8d8ff;
+  transition: transform 0.3s ease, font-weight 0.3s ease, letter-spacing 0.3s ease;
+}
+
+.why-choose-us-card li:hover {
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transform: scale(1.01);
+}
+
+
+.check-icon {
+  color: #d39fed;
+  font-size: 1.3rem;
+}
