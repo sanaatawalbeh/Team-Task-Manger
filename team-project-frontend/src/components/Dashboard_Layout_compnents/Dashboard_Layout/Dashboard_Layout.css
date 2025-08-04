@@ -1,6 +1,6 @@
 .dashboard-layout {
   display: flex;
-  height: 110vh;
+  height: 140vh;
   font-family: sans-serif;
   background-color: #fddde3;
   position: relative;
@@ -8,7 +8,7 @@
 
 /* Sidebar */
 .sidebar {
-  width: 260px;
+  width: 300px;
   background-color: #5d3585;
   color: #fddde3;
   padding: 1.5rem 1rem;
@@ -40,6 +40,7 @@
   font-weight: bold;
   margin-bottom: 2rem;
   margin-top: 2.8rem;
+  color:white ;
 }
 
 .dashboard-nav-links {
@@ -66,6 +67,17 @@
 .dash-link:hover,
 .signout-btn:hover {
   background-color: #a166af;
+}
+
+
+.dash-link.active {
+  background-color: #a166af; 
+  color: #ffffff; 
+  font-weight: bold;
+}
+
+.dash-link.active svg {
+  color: #FDDDE3;
 }
 
 .dash-link span,
@@ -104,19 +116,18 @@
   transition: all 0.3s ease;
 }
 
-/* لما تنفتح */
 .dropdown-menu.show {
   max-height: 200px;
   opacity: 1;
   transform: translateY(0);
 }
 
-.settings-dropdown:hover .dropdown-menu,
+/* .settings-dropdown:hover .dropdown-menu,
 .settings-dropdown .dropdown-menu.show {
-  max-height: 200px; /* حط أقصى ارتفاع متوقع */
+  max-height: 200px; 
   opacity: 1;
   transform: translateY(0);
-}
+} */
 
 .sub-link {
   font-size: 0.95rem;

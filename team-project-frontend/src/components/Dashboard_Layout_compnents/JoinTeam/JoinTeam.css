@@ -1,22 +1,22 @@
-.team-container {
+.join-container {
   max-width: 450px;
   margin: 50px auto;
-  background: linear-gradient(135deg, #faf5ff, #ffffff);
-  border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(128, 90, 213, 0.2);
   padding: 30px;
+  background: linear-gradient(to right, #f3e8ff, #ffffff);
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.2);
   font-family: "Segoe UI", sans-serif;
 }
 
-.team-title {
+.join-title {
   text-align: center;
-  color: #6b21a8;
+  color: #6d28d9;
   font-size: 1.8rem;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
-.team-motivation {
+.join-motivation {
   text-align: center;
   color: #4b5563;
   font-size: 0.95rem;
@@ -24,55 +24,48 @@
   font-style: italic;
 }
 
-.team-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.team-form label {
-  color: #4b5563;
-  font-weight: 500;
-  margin-bottom: 5px;
-  display: block;
-}
-
-.team-form input {
+.join-input {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
+  font-size: 1rem;
   border: 1px solid #d1d5db;
   border-radius: 8px;
-  transition: border-color 0.3s ease;
+  margin-bottom: 16px;
+  transition: border 0.3s ease;
 }
 
-.team-form input:focus {
+.join-input:focus {
   border-color: #8b5cf6;
   outline: none;
 }
 
-.team-form button {
+.join-button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: bold;
   background-color: #8b5cf6;
   color: white;
-  padding: 12px;
   border: none;
   border-radius: 10px;
-  font-weight: bold;
   cursor: pointer;
   transition: background 0.3s ease;
 }
 
-.team-form button:hover {
+.join-button:hover {
   background-color: #7c3aed;
 }
 
-.success {
+.join-success {
   color: #16a34a;
   text-align: center;
   font-weight: 500;
+  margin-top: 12px;
 }
 
-.error {
+.join-error {
   color: #dc2626;
   text-align: center;
   font-weight: 500;
+  margin-top: 12px;
 }

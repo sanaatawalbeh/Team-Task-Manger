@@ -11,10 +11,13 @@ app.use(express.json());
 //routes
 const userRoute = require("./routes/users");
 const teamRoute = require("./routes/teams");
+const teamsMemberRoute = require("./routes/teamsMember");
 
 //routes use
 app.use("/user", userRoute);
 app.use("/team", teamRoute);
+app.use("/teamsmember", teamsMemberRoute);
+
 
 // -----------------------------------------------------------------------------------------------
 const port = process.env.PORT || 3000;
