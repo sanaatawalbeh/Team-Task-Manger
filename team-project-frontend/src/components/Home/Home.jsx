@@ -21,7 +21,7 @@ export default function Home() {
           understands your business.
         </p>
         <div className="hero-buttons">
-          <button className="btn-primary" onClick={handleGetStarted}>
+          <button className="btn-primary-home" onClick={handleGetStarted}>
             Get started
             <span className="arrow-icon">
               <FiArrowRight />

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
-import "./CreateTeam.css"
+import "./CreateTeam.css";
+
 export default function CreateTeam() {
   const [name, setName] = useState("");
   const [code, setCode] = useState("");
@@ -13,9 +14,9 @@ export default function CreateTeam() {
     setError(null);
 
     try {
-      const token = localStorage.getItem("token"); // تأكد إنك مخزن التوكن
+      const token = localStorage.getItem("token");
       const response = await axios.post(
-        "/team/create",
+        "http://localhost:2666/team/create",
         { name, code },
         {
           headers: {
@@ -37,48 +38,39 @@ export default function CreateTeam() {
   };
 
   return (
-    <div className="max-w-md mx-auto p-4 bg-white rounded-xl shadow-lg mt-10">
-      <h2 className="text-xl font-semibold mb-4 text-center text-purple-700">
-        Create a New Team
-      </h2>
-      <form onSubmit={handleCreate} className="space-y-4">
+    <div className="team-container">
+      <h2 className="team-title">Create a New Team</h2>
+      <p className="team-motivation">
+        Great things happen when people collaborate. Build your team, lead the
+        way, and achieve more together!
+      </p>
+      <form onSubmit={handleCreate} className="team-form">
         <div>
-          <label className="block text-gray-700 mb-1">Team Name</label>
+          <label>Team Name</label>
           <input
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
-            className="w-full border border-gray-300 p-2 rounded"
-            placeholder="e.g. Frontend Team"
+            placeholder="e.g. Frontend Avengers"
           />
         </div>
 
         <div>
-          <label className="block text-gray-700 mb-1">Team Code</label>
+          <label>Team Code</label>
           <input
             type="text"
             value={code}
             onChange={(e) => setCode(e.target.value)}
             required
-            className="w-full border border-gray-300 p-2 rounded"
-            placeholder="e.g. TEAM123"
+            placeholder="e.g. CODE2025"
           />
         </div>
 
-        <button
-          type="submit"
-          className="w-full bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded transition"
-        >
-          Create Team
-        </button>
+        <button type="submit">Create Team</button>
 
-        {message && (
-          <p className="text-green-600 text-sm text-center mt-2">{message}</p>
-        )}
-        {error && (
-          <p className="text-red-600 text-sm text-center mt-2">{error}</p>
-        )}
+        {message && <p className="success">{message}</p>}
+        {error && <p className="error">{error}</p>}
       </form>
     </div>
   );

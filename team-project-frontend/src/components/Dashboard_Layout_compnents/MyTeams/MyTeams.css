@@ -1,0 +1,130 @@
+.my-teams-container {
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.my-teams-title {
+  text-align: center;
+  font-size: 2rem;
+  color: #6b21a8;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
+
+.team-count {
+  text-align: center;
+  color: #444;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.team-cards-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.team-card {
+  background-color: #ffffff;
+  width: 350px;
+  text-align: center;
+  padding: 1.5rem;
+  border-radius: 1.2rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: start;
+
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+}
+
+.team-info h3 {
+  font-size: 1.2rem;
+  color: #5b21b6;
+  margin-bottom: 0.5rem;
+}
+
+.team-info p {
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.team-role.leader {
+  color: #16a34a;
+  font-weight: bold;
+}
+
+.team-role.member {
+  color: #2563eb;
+  font-weight: bold;
+}
+
+.created-at {
+  font-size: 0.8rem;
+  color: #999;
+  margin-top: 0.3rem;
+}
+.goToTeamwrapper{
+  display: flex;
+   justify-content: center;
+  margin-top: 20px;
+}
+
+.go-to-team-btn{
+  background-color: #8b5cf6;
+  color: white;
+  padding: 0.4rem 1rem;
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  margin-top: 1rem;
+  font-weight: 500;
+  width: 240px;
+  height: 39px;
+  transition: background-color 0.3s ease;
+}
+
+.view-members-btn:hover {
+  background-color: #7c3aed;
+}
+
+.members-section {
+  margin-top: 1rem;
+  background-color: #f5f3ff;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+}
+
+.members-section h4 {
+  font-size: 0.95rem;
+  color: #6d28d9;
+  margin-bottom: 0.5rem;
+}
+
+.members-section ul {
+  padding-left: 1.2rem;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.members-section li {
+  margin-bottom: 0.4rem;
+}
+
+.error-message,
+.empty-message {
+  text-align: center;
+  font-size: 0.95rem;
+  color: #c00;
+}

@@ -71,7 +71,7 @@ router.get("/profile", routeGuard, async (req, res) => {
   try {
     const userId = req.user.id;
     const result = await pool.query(
-      "SELECT id, full_name, email, birth_date, gender, phone_number FROM users WHERE id = $1",
+      "SELECT id, full_name, email, birth_date, gender, phone_number, profile_image FROM users WHERE id = $1",
       [userId]
     );
 
@@ -159,6 +159,29 @@ router.put("/changePassword", routeGuard, async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Failed to change password." });
+  }
+});
+
+//edit profile picture
+router.put("/editpicture", routeGuard, async (req, res) => {
+  const userId = req.user.id;
+  const { profile_image } = req.body;
+
+  try {
+    const result = await pool.query(
+      `
+      UPDATE users
+      SET profile_image = $1
+      WHERE id = $2
+      RETURNING id,email,profile_image;
+      `,
+      [profile_image, userId]
+    );
+
+    res.json(result.rows[0]);
+  } catch (err) {
+    console.error("Error updating profile image:", err);
+    res.status(500).json({ message: "Failed to update profile image." });
   }
 });
 

@@ -53,7 +53,7 @@
   background-color: #a167a1AF;
   transform: scale(1.05);
 } */
-.btn-primary {
+.btn-primary-home {
   background-color: #A166AF;
   color: #FDDDE5;
   border: none;
@@ -75,7 +75,7 @@
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.btn-primary:hover {
+.btn-primary-home:hover {
   background-color: #8f4c9e;
 }
 
