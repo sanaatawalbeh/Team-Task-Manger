@@ -11,24 +11,29 @@ import {
   FaDoorOpen,
   FaArrowLeft,
   FaAngleDown,
+  FaTasks,
+  FaPlus,
 } from "react-icons/fa";
 import "./LeaderLayout.css";
 
 export default function Dashboard_Layout() {
   const navigate = useNavigate();
+  const location = useLocation();
+
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [openTeamSettings, setOpenTeamSettings] = useState(false);
+  const [openTaskSettings, setOpenTaskSettings] = useState(false);
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
-  const [openSettings, setOpenSettings] = useState(false);
-  const location = useLocation();
 
   const isSettingsRoute =
-    location.pathname.includes("/ِaddmemver") ||
-    location.pathname.includes("/removemember");
-  location.pathname.includes("/changerole");
-  location.pathname.includes("/leaveteam");
+    location.pathname.includes("/addmember") ||
+    location.pathname.includes("/removemember") ||
+    location.pathname.includes("/changerole") ||
+    location.pathname.includes("/leaveteam") ||
+    location.pathname.includes("/createtask");
 
   return (
     <div className="dashboard-layout">
@@ -49,25 +54,26 @@ export default function Dashboard_Layout() {
             <FaUsers /> <span>Team Members</span>
           </NavLink>
 
+          {/* Team Management Dropdown */}
           <div className="settings-dropdown">
             <div
               className={`dash-link dropdown-toggle ${
-                openSettings || isSettingsRoute ? "active" : ""
+                openTeamSettings || isSettingsRoute ? "active" : ""
               }`}
-              onClick={() => setOpenSettings((prev) => !prev)}
+              onClick={() => setOpenTeamSettings((prev) => !prev)}
             >
               <FaUsersCog /> <span>Team Management</span>
-              <span className={`arrow ${openSettings ? "rotate" : ""}`}>
+              <span className={`arrow ${openTeamSettings ? "rotate" : ""}`}>
                 <FaAngleDown />
-              </span>{" "}
+              </span>
             </div>
 
-            <div className={`dropdown-menu ${openSettings ? "show" : ""}`}>
+            <div className={`dropdown-menu ${openTeamSettings ? "show" : ""}`}>
               <NavLink
                 to="/leaderlayout/addmember"
                 className="dash-link sub-link"
               >
-                <FaUserPlus /> <span>Add member</span>
+                <FaUserPlus /> <span>Add Member</span>
               </NavLink>
               <NavLink
                 to="/leaderlayout/removemember"
@@ -90,8 +96,51 @@ export default function Dashboard_Layout() {
             </div>
           </div>
 
-          <button className="signout-btn" onClick={() => navigate("/")}>
-            <FaArrowLeft /> <span>Return to Dashboard </span>
+          {/* Task Management Dropdown */}
+          <div className="settings-dropdown">
+            <div
+              className="dash-link dropdown-toggle"
+              onClick={() => setOpenTaskSettings((prev) => !prev)}
+            >
+              <FaTasks /> <span>Tasks Management</span>
+              <span className={`arrow ${openTaskSettings ? "rotate" : ""}`}>
+                <FaAngleDown />
+              </span>
+            </div>
+
+            <div className={`dropdown-menu ${openTaskSettings ? "show" : ""}`}>
+              <NavLink
+                to="/leaderlayout/mytasks"
+                className="dash-link sub-link"
+              >
+                <FaPlus /> <span>My Tasks</span>
+              </NavLink>
+
+              <NavLink
+                to="/leaderlayout/allteamtasks"
+                className="dash-link sub-link"
+              >
+                <FaPlus /> <span>Team Tasks</span>
+              </NavLink>
+
+              <NavLink
+                to="/leaderlayout/createtask"
+                className="dash-link sub-link"
+              >
+                <FaPlus /> <span>New Task</span>
+              </NavLink>
+            </div>
+          </div>
+
+          <NavLink to="/leaderlayout/leaveteam" className="dash-link sub-link">
+            <FaDoorOpen /> <span>Leave Team</span>
+          </NavLink>
+
+          <button
+            className="signout-btn"
+            onClick={() => navigate("/dashboard/myteam")}
+          >
+            <FaArrowLeft /> <span>Return to Dashboard</span>
           </button>
         </nav>
       </aside>

@@ -1,0 +1,60 @@
+.my-tasks-container {
+  padding: 20px;
+}
+
+.task-list {
+  list-style: none;
+  padding: 0;
+}
+
+.task-item {
+  background: #f9f9f9;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.assigned-to,
+.created-by {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.assigned-to img,
+.created-by img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.priority-badge {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.priority-badge.high {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.priority-badge.medium {
+  background-color: #f39c12;
+  color: white;
+}
+
+.priority-badge.low {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.task-bottom-info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}

@@ -3,11 +3,13 @@ import { useState } from "react";
 import {
   FaBars,
   FaTimes,
-  FaHome,
-  FaSignOutAlt,
-  FaUser,
-  FaEdit,
   FaUsers,
+  FaDoorOpen,
+  FaArrowLeft,
+  FaTasks,
+  FaAngleDown,
+  FaPlusSquare,
+  FaPlus,
 } from "react-icons/fa";
 
 export default function Dashboard_Layout() {
@@ -43,8 +45,38 @@ export default function Dashboard_Layout() {
             <FaUsers /> <span>Team Members</span>
           </NavLink>
 
-          <button className="signout-btn" onClick={() => navigate("/")}>
-            <FaSignOutAlt /> <span>Sign Out</span>
+          <div className="settings-dropdown">
+            <div
+              className={`dash-link dropdown-toggle ${
+                openSettings || isSettingsRoute ? "active" : ""
+              }`}
+              onClick={() => setOpenSettings((prev) => !prev)}
+            >
+              <FaTasks /> <span>Tasks Management</span>
+              <span className={`arrow ${openSettings ? "rotate" : ""}`}>
+                <FaAngleDown />
+              </span>
+            </div>
+
+            <div className={`dropdown-menu ${openSettings ? "show" : ""}`}>
+              <NavLink
+                to="/memberlayout/createtask"
+                className="dash-link sub-link"
+              >
+                <FaPlus /> <span>New Task</span>
+              </NavLink>
+            </div>
+          </div>
+
+          <NavLink to="/memberlayout/leaveteam" className="dash-link sub-link">
+            <FaDoorOpen /> <span>Leave Team</span>
+          </NavLink>
+
+          <button
+            className="signout-btn"
+            onClick={() => navigate("/dashboard/myteam")}
+          >
+            <FaArrowLeft /> <span>Return to Dashboard </span>
           </button>
         </nav>
       </aside>
