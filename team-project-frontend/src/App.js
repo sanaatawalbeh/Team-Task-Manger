@@ -16,6 +16,13 @@ import MyTeams from "./components/Dashboard_Layout_compnents/MyTeams/MyTeams";
 import MemberLayout from "./components/Member_Layout_comsponents/MemberLayout/MemberLayout";
 import LeaderLayout from "./components/Leader_Layout_comsponents/LeaderLayout/LeaderLayout";
 import TeamMembers from "./components/Mutal_components/TeamMembers/TeamMembers";
+import AddMember from "./components/Leader_Layout_comsponents/AddMember/AddMember";
+import RemoveMember from "./components/Leader_Layout_comsponents/RemoveMember/RemoveMember";
+import ChangeRole from "./components/Leader_Layout_comsponents/ChangeRole/ChangeRole";
+import LeaveTeam from "./components/Mutal_components/LeaveTeam/LeaveTeam";
+import CreateTask from "./components/Mutal_components/CreateTask/CreateTask";
+import AllTeamTasks from "./components/Mutal_components/AllTeamTasks/AllTeamTasks";
+import MyTasks from "./components/Mutal_components/MyTasks/MyTasks";
 
 function App() {
   return (
@@ -44,10 +51,30 @@ function App() {
 
           <Route path="/leaderlayout" element={<LeaderLayout />}>
             <Route path="/leaderlayout/teammembers" element={<TeamMembers />} />
+            <Route path="/leaderlayout/addmember" element={<AddMember />} />
+            <Route
+              path="/leaderlayout/removemember"
+              element={<RemoveMember />}
+            />
+            <Route path="/leaderlayout/changerole" element={<ChangeRole />} />
+            <Route path="/leaderlayout/leaveteam" element={<LeaveTeam />} />
+            <Route path="/leaderlayout/createtask" element={<CreateTask />} />
+            <Route
+              path="/leaderlayout/allteamtasks"
+              element={<AllTeamTasks />}
+            />
+            <Route path="/leaderlayout/mytasks" element={<MyTasks />} />
           </Route>
 
           <Route path="/memberlayout" element={<MemberLayout />}>
             <Route path="/memberlayout/teammembers" element={<TeamMembers />} />
+            <Route path="/memberlayout/leaveteam" element={<LeaveTeam />} />
+            <Route path="/memberlayout/createtask" element={<CreateTask />} />
+            <Route
+              path="/memberlayout/allteamtasks"
+              element={<AllTeamTasks />}
+            />
+            <Route path="/memberlayout/mytasks" element={<MyTasks />} />
           </Route>
         </Routes>
       </BrowserRouter>

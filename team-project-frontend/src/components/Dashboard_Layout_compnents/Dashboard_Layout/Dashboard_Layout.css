@@ -1,6 +1,6 @@
 .dashboard-layout {
   display: flex;
-  height: 140vh;
+  height: 160vh;
   font-family: sans-serif;
   background-color: #fddde3;
   position: relative;
@@ -8,19 +8,23 @@
 
 /* Sidebar */
 .sidebar {
-  width: 300px;
+  /* width: 300px; */
   background-color: #5d3585;
   color: #fddde3;
   padding: 1.5rem 1rem;
   transition: all 0.3s ease;
   box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.2);
+  width: 400px;
 }
 
-.sidebar-icon-close {
+.sidebar-icon-open {
   font-size: 24px;
   color: rgb(255, 255, 255);
+  background-color: #5d3585;
+  padding: 10px;
+  border-radius: 12px;
   position: absolute;
-  left: 1px;
+  left: 0px;
   top: 0px;
   transition: transform 0.2s;
 }
@@ -40,7 +44,7 @@
   font-weight: bold;
   margin-bottom: 2rem;
   margin-top: 2.8rem;
-  color:white ;
+  color: white;
 }
 
 .dashboard-nav-links {
@@ -66,18 +70,19 @@
 
 .dash-link:hover,
 .signout-btn:hover {
-  background-color: #a166af;
+  background-color: #9f60af;
+  border-radius: 16px;
 }
 
-
 .dash-link.active {
-  background-color: #a166af; 
-  color: #ffffff; 
+  background-color: #a166af;
+  color: #ffffff;
   font-weight: bold;
+  border-radius: 16px;
 }
 
 .dash-link.active svg {
-  color: #FDDDE3;
+  color: #fddde3;
 }
 
 .dash-link span,
@@ -137,16 +142,21 @@
 
 .sidebar-toggle {
   position: absolute;
-  top: 1rem;
-  left: 1rem;
+  top: 0.5rem;
+  left: 0.5rem;
   z-index: 100;
-  background-color: #a166af;
+  background-color: transparent;
   color: white;
   border: none;
   border-radius: 8px;
   padding: 0.5rem 0.75rem;
   cursor: pointer;
   font-size: 1.2rem;
+  width: 0px;
+}
+
+.sidebar-toggle:hover {
+  background-color: transparent;
 }
 
 .main-content {

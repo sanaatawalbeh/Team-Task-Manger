@@ -72,11 +72,12 @@ const MyTeams = () => {
                 <button
                   className="go-to-team-btn"
                   onClick={() => {
-                    localStorage.setItem("team_id", team.id); // 👈 نحفظ teamId
+                    localStorage.setItem("team_id", team.id);
+                    localStorage.setItem("role", team.role); // 👈 أضف هذا السطر
                     if (team.role === "leader") {
-                      navigate("/leaderlayout");
+                      navigate("/leaderlayout/teammembers");
                     } else {
-                      navigate("/memberlayout");
+                      navigate("/memberlayout/teammembers");
                     }
                   }}
                 >
