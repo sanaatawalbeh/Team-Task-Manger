@@ -1,9 +1,10 @@
 import React from "react";
+import { Helmet } from "react-helmet";
+
 import "./About.css";
 import {
   FaMagic,
   FaHeart,
-  FaBrain,
   FaUsers,
   FaThLarge,
   FaBolt,
@@ -13,6 +14,9 @@ import {
 export default function About() {
   return (
     <div className="about-container">
+         <Helmet>
+                <title>TeamFlow | About</title>
+              </Helmet>
       {/* SECTION 1: HEADER */}
       <div className="about-header">
         <h1>Made with love. Built for teams.</h1>

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet";
 import axios from "axios";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
@@ -33,13 +34,13 @@ export default function Login() {
           "http://localhost:2666/user/login",
           formData
         );
-        const token = res.data.token;
+        const { token, userId } = res.data;
 
-        setModalMessage(" Login successful!");
+        setModalMessage("Login successful!");
         localStorage.setItem("token", token);
+        localStorage.setItem("userId", userId);
 
         navigate("/dashboard/main");
-
       } catch (err) {
         if (err.response?.status === 404) {
           setModalMessage(" Email not found.");
@@ -57,6 +58,9 @@ export default function Login() {
 
   return (
     <div className="register-container">
+      <Helmet>
+        <title>TeamFlow | Login</title>
+      </Helmet>
       <div className="register-left">
         <h2>Welcome Back</h2>
         <p>

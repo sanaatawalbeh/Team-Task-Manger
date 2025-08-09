@@ -1,6 +1,6 @@
+import { Helmet } from "react-helmet";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 import axios from "axios";
 import "./MyTeams.css";
 const MyTeams = () => {
@@ -29,6 +29,9 @@ const MyTeams = () => {
 
   return (
     <div className="my-teams-container">
+      <Helmet>
+        <title>TeamFlow | My Teams</title>
+      </Helmet>
       <h2 className="my-teams-title">My Teams</h2>
 
       {error && <p className="error-message">{error}</p>}
@@ -73,7 +76,9 @@ const MyTeams = () => {
                   className="go-to-team-btn"
                   onClick={() => {
                     localStorage.setItem("team_id", team.id);
-                    localStorage.setItem("role", team.role); // 👈 أضف هذا السطر
+                    localStorage.setItem("role", team.role);
+                    localStorage.setItem("teamName", team.name);
+
                     if (team.role === "leader") {
                       navigate("/leaderlayout/teammembers");
                     } else {

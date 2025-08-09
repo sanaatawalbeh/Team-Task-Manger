@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import axios from "axios";
 import "./RemoveMember.css";
 
@@ -6,6 +8,8 @@ export default function RemoveMember() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
+
+  const navigate = useNavigate();
 
   const handleRemove = async (e) => {
     e.preventDefault();
@@ -25,6 +29,7 @@ export default function RemoveMember() {
       );
       setMessage(res.data.message);
       setEmail("");
+      navigate("/leaderlayout/teammembers");
     } catch (err) {
       setError(err.response?.data?.error || "Something went wrong.");
     }

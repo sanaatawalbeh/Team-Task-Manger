@@ -1,4 +1,6 @@
+import { Helmet } from "react-helmet";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./JoinTeam.css";
 
@@ -6,6 +8,8 @@ const JoinTeam = () => {
   const [code, setCode] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
+
+  const navigate = useNavigate();
 
   const handleJoin = async () => {
     setMessage("");
@@ -26,6 +30,7 @@ const JoinTeam = () => {
 
       setMessage(res.data.message);
       setCode("");
+      navigate("/dashboard/myteam");
     } catch (err) {
       if (err.response?.data?.error) {
         setError(err.response.data.error);
@@ -37,6 +42,9 @@ const JoinTeam = () => {
 
   return (
     <div className="join-container">
+      <Helmet>
+        <title>TeamFlow | Join Team</title>
+      </Helmet>
       <h2 className="join-title">Join a Team</h2>
       <p className="join-motivation">
         Joining a team means joining forces. Enter your team code and become

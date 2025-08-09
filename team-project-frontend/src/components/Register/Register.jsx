@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet";
+
 import axios from "axios";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
@@ -75,6 +77,9 @@ export default function Register() {
 
   return (
     <div className="register-container">
+      <Helmet>
+        <title>TeamFlow | Register</title>
+      </Helmet>
       <div className="register-left">
         <h2>Join Our Platform</h2>
         <p>

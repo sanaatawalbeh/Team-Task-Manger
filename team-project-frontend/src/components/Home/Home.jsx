@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import "./Home.css";
 import teamPlanningImg from "../../Assets/08a724c2-4611-4ef0-bf3d-bc0e9cab4aeb.jpg";
 import { useNavigate } from "react-router-dom";
@@ -13,6 +14,9 @@ export default function Home() {
   return (
     <section className="hero-container">
       <div className="hero-text">
+        <Helmet>
+          <title>TeamFlow | Home</title>
+        </Helmet>
         <h1 className="hero-title">
           Where your teams and AI coordinate work together
         </h1>

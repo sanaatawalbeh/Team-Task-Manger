@@ -13,12 +13,15 @@ const userRoute = require("./routes/users");
 const teamRoute = require("./routes/teams");
 const teamsMemberRoute = require("./routes/teamsMember");
 const tasksRoute = require("./routes/tasks");
+const commentssRoute = require("./routes/comments");
+
 
 //routes use
 app.use("/user", userRoute);
 app.use("/team", teamRoute);
 app.use("/teamsmember", teamsMemberRoute);
 app.use("/task", tasksRoute);
+app.use("/comment", commentssRoute);
 
 
 // -----------------------------------------------------------------------------------------------

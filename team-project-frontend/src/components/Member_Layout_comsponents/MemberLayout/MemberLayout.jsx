@@ -1,20 +1,30 @@
 import { Outlet, NavLink, useNavigate, useLocation } from "react-router-dom";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+
 import {
   FaBars,
   FaTimes,
   FaUsers,
-  FaDoorOpen,
   FaArrowLeft,
   FaTasks,
   FaAngleDown,
-  FaPlusSquare,
-  FaPlus,
+  FaSignOutAlt,
 } from "react-icons/fa";
+import { MdAssignmentInd, MdGroups, MdAddTask } from "react-icons/md";
 
 export default function Dashboard_Layout() {
   const navigate = useNavigate();
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [showLeaveModal, setShowLeaveModal] = useState(false); // ✅ هذا السطر ضروري
+  const [teamName, setTeamName] = useState("");
+
+  useEffect(() => {
+    const storedTeamName = localStorage.getItem("teamName");
+    if (storedTeamName) {
+      setTeamName(storedTeamName);
+    }
+  }, []);
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
@@ -26,6 +36,22 @@ export default function Dashboard_Layout() {
     location.pathname.includes("/editprofile") ||
     location.pathname.includes("/changepassword");
 
+  const token = localStorage.getItem("token");
+  const teamId = localStorage.getItem("team_id");
+  const handleLeaveTeam = async () => {
+    try {
+      await axios.delete(`http://localhost:2666/teamsmember/${teamId}/leave`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      localStorage.removeItem("team_id");
+      setShowLeaveModal(false);
+      navigate("/dashboard/myteam");
+    } catch (err) {
+      console.error(err);
+    }
+  };
   return (
     <div className="dashboard-layout">
       {/* Toggle button */}
@@ -39,7 +65,9 @@ export default function Dashboard_Layout() {
 
       {/* Sidebar */}
       <aside className={`sidebar ${sidebarOpen ? "open" : "closed"}`}>
-        <h2 className="logo">Member Page</h2>
+        <h5 className="logo">
+          {teamName ? `Member Page - ${teamName}` : "Leader Page"}
+        </h5>{" "}
         <nav className="dashboard-nav-links">
           <NavLink to="/memberlayout/teammembers" className="dash-link">
             <FaUsers /> <span>Team Members</span>
@@ -60,17 +88,47 @@ export default function Dashboard_Layout() {
 
             <div className={`dropdown-menu ${openSettings ? "show" : ""}`}>
               <NavLink
+                to="/memberlayout/mytasks"
+                className="dash-link sub-link"
+              >
+                <MdAssignmentInd /> <span>My Tasks</span>
+              </NavLink>
+
+              <NavLink
+                to="/memberlayout/allteamtasks"
+                className="dash-link sub-link"
+              >
+                <MdGroups /> <span>Team Tasks</span>
+              </NavLink>
+
+              <NavLink
                 to="/memberlayout/createtask"
                 className="dash-link sub-link"
               >
-                <FaPlus /> <span>New Task</span>
+                <MdAddTask /> <span>New Task</span>
               </NavLink>
             </div>
           </div>
+          <button
+            className={`dash-link sub-link ${showLeaveModal ? "active" : ""}`}
+            onClick={() => setShowLeaveModal(true)}
+          >
+            <FaSignOutAlt /> <span>Leave Team</span>
+          </button>
 
-          <NavLink to="/memberlayout/leaveteam" className="dash-link sub-link">
-            <FaDoorOpen /> <span>Leave Team</span>
-          </NavLink>
+          {showLeaveModal && (
+            <div className="leave-modal-backdrop">
+              <div className="leave-modal">
+                <p>Are you sure you want to leave this team?</p>
+                <div className="leave-modal-actions">
+                  <button onClick={handleLeaveTeam}>Leave</button>
+                  <button onClick={() => setShowLeaveModal(false)}>
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
 
           <button
             className="signout-btn"

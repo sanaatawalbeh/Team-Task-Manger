@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import axios from "axios";
 import { FaMars, FaVenus, FaGenderless, FaEdit, FaTimes } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
@@ -30,7 +31,10 @@ export default function My_Profile() {
           },
         }
       );
-      setProfile(res.data);
+      setProfile((prev) => ({
+        ...prev,
+        profile_image: res.data.profile_image,
+      }));
       setShowModal(false);
     } catch (err) {
       console.error("Failed to update image", err);
@@ -44,6 +48,7 @@ export default function My_Profile() {
         const res = await axios.get("http://localhost:2666/user/profile", {
           headers: { Authorization: `Bearer ${token}` },
         });
+
         setProfile(res.data);
       } catch (err) {
         console.error(err);
@@ -82,6 +87,9 @@ export default function My_Profile() {
 
   return (
     <div className="my-profile-container">
+      <Helmet>
+        <title>TeamFlow | Profile</title>
+      </Helmet>
       <h1 className="profile-title">My Profile</h1>
 
       <div className="profile-content">

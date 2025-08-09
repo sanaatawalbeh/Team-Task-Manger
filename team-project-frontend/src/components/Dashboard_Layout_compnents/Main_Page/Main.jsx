@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import axios from "axios";
 import { FaUser, FaUsers, FaChartLine, FaCog } from "react-icons/fa";
 import "./Main.css";
@@ -54,6 +55,9 @@ export default function Main() {
 
   return (
     <div className="dashboard-home">
+      <Helmet>
+        <title>TeamFlow | Dashboard</title>
+      </Helmet>
       <h1 className="main-title">
         {loading ? "Welcome..." : `Welcome back, ${firstName} `}
       </h1>

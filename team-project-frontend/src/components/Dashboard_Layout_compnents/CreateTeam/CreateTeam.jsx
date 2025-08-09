@@ -1,4 +1,6 @@
+import { Helmet } from "react-helmet";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./CreateTeam.css";
 
@@ -7,6 +9,8 @@ export default function CreateTeam() {
   const [code, setCode] = useState("");
   const [message, setMessage] = useState(null);
   const [error, setError] = useState(null);
+
+  const navigate = useNavigate();
 
   const handleCreate = async (e) => {
     e.preventDefault();
@@ -28,6 +32,7 @@ export default function CreateTeam() {
       setMessage(`Team "${response.data.name}" created successfully!`);
       setName("");
       setCode("");
+      navigate("/dashboard/myteam");
     } catch (err) {
       if (err.response?.data?.error) {
         setError(err.response.data.error);
@@ -39,6 +44,9 @@ export default function CreateTeam() {
 
   return (
     <div className="team-container">
+      <Helmet>
+        <title>TeamFlow | Create Team</title>
+      </Helmet>
       <h2 className="team-title">Create a New Team</h2>
       <p className="team-motivation">
         Great things happen when people collaborate. Build your team, lead the
