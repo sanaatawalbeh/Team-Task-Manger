@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -23,9 +24,9 @@ export default function ChangePassword() {
     setMessage("");
     setError("");
 
-     if (form.new_password !== form.confirm_password) {
-       return setError("Passwords do not match.");
-     }
+    if (form.new_password !== form.confirm_password) {
+      return setError("Passwords do not match.");
+    }
     try {
       await axios.put("http://localhost:2666/user/changePassword", form, {
         headers: {
@@ -45,6 +46,10 @@ export default function ChangePassword() {
 
   return (
     <div className="change-password-container">
+      {" "}
+      <Helmet>
+        <title>TeamFlow | Change Password</title>
+      </Helmet>
       <form className="change-password-form" onSubmit={handleSubmit}>
         <h2>Change Password</h2>
 

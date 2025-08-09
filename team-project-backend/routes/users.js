@@ -43,7 +43,7 @@ router.post("/login", async (req, res) => {
 
   try {
     const userResult = await pool.query(
-      "SELECT * FROM users WHERE email = $1 ",
+      "SELECT * FROM users WHERE email = $1 AND is_deleted = false;",
       [email]
     );
     const user = userResult.rows[0];
@@ -56,10 +56,10 @@ router.post("/login", async (req, res) => {
       return res.status(401).json({ message: "Incorrect password" });
 
     const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
-      expiresIn: "1d",
+      expiresIn: "2d",
     });
 
-    res.send({ token });
+res.send({ token, userId: user.id });
   } catch (error) {
     console.log("Error logging in ", error);
     res.status(500).json({ message: "Internal Server Error" });
@@ -184,5 +184,41 @@ router.put("/editpicture", routeGuard, async (req, res) => {
     res.status(500).json({ message: "Failed to update profile image." });
   }
 });
+
+// router.delete("/deleteMyAccount", routeGuard, async (req, res) => {
+//   const userId = req.user.id; // مستخرج من JWT
+//   const { password } = req.body;
+
+//   if (!password) {
+//     return res.status(400).json({ error: "Password is required." });
+//   }
+
+//   try {
+//     const { rows } = await pool.query("SELECT * FROM users WHERE id = $1", [
+//       userId,
+//     ]);
+
+//     if (rows.length === 0) {
+//       return res.status(404).json({ error: "User not found." });
+//     }
+
+//     const user = rows[0];
+
+//     const isMatch = await bcrypt.compare(password, user.password);
+//     if (!isMatch) {
+//       return res.status(401).json({ error: "Incorrect password." });
+//     }
+
+//     // 3. اعمل soft delete
+//     await pool.query("UPDATE users SET is_deleted = true WHERE id = $1", [
+//       userId,
+//     ]);
+
+//     res.json({ message: "Account has been deactivated (soft deleted)." });
+//   } catch (err) {
+//     console.error(err);
+//     res.status(500).json({ error: "Internal server error." });
+//   }
+// });
 
 module.exports = router;

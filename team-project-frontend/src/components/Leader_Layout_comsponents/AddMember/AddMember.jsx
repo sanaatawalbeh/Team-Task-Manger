@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./AddMember.css";
 
@@ -7,6 +8,8 @@ export default function AddMember() {
   const [role, setRole] = useState("member");
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
+
+  const navigate = useNavigate();
 
   const handleAddMember = async (e) => {
     e.preventDefault();
@@ -25,6 +28,8 @@ export default function AddMember() {
       setMessage(res.data.message);
       setEmail("");
       setRole("member");
+
+      navigate("/leaderlayout/teammembers");
     } catch (err) {
       setError(err.response?.data?.error || "Something went wrong.");
     }

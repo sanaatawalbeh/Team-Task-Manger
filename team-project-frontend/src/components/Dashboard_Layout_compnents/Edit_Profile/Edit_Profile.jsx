@@ -1,7 +1,8 @@
+import { Helmet } from "react-helmet";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "./Edit_Profile.css"
+import "./Edit_Profile.css";
 export default function EditProfile() {
   const [form, setForm] = useState({
     full_name: "",
@@ -55,6 +56,9 @@ export default function EditProfile() {
 
   return (
     <div className="edit-profile-container">
+      <Helmet>
+        <title>TeamFlow | Edit Profile</title>
+      </Helmet>
       <form className="edit-profile-form" onSubmit={handleSubmit}>
         <h2>Edit Your Profile</h2>
 

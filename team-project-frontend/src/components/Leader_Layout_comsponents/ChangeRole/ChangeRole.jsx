@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./ChangeRole.css";
 import axios from "axios";
 
@@ -9,6 +10,8 @@ export default function ChangeRole() {
   const [message, setMessage] = useState(null);
   const [error, setError] = useState(null);
 
+  const navigate = useNavigate();
+
   const handleChangeRole = async () => {
     setLoading(true);
     setMessage(null);
@@ -17,7 +20,6 @@ export default function ChangeRole() {
     const teamId = localStorage.getItem("team_id");
     const token = localStorage.getItem("token");
 
-    // ✅ تحقق من وجود teamId و token
     if (!teamId || !token) {
       setError("Missing team ID or authentication token.");
       setLoading(false);
@@ -42,6 +44,7 @@ export default function ChangeRole() {
       setMessage(response.data.message || "Role updated successfully.");
       setEmail("");
       setNewRole("member");
+      navigate("/leaderlayout/teammembers");
     } catch (err) {
       const apiError = err.response?.data?.error || "Something went wrong";
       setError(apiError);
