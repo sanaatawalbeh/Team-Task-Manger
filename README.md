@@ -53,52 +53,55 @@ It allows teams to organize tasks, manage members, and collaborate efficiently.
 
 ## Project Structure (Example)
 
-Team-Task-Manger
-|-team-project-backend
-|-node_modules
-|-middleware
-|-verifytoken.js
-|-routes
-|-teams.js
-|-users.js
-|-teamMembers.js
-|-.env
-|-.gitignore
-|-package-lock.json
-|-package.json
-|-server.js
-|-team-project-frontend
-|-node_modules
-|-public
-|-src
-|-assets //for images
-|-components
-|-Home
-|-About
-   |-Login
-|Register
-|-Public_Layout_components
-|-Footer
-|-Navbar
-|-Public-Layout
-|-Dashboard_Layout_components
-|-Dashboard_Layout
-|-MainPage
-|-MyProfile
-|-EditProfile
-|-ChangePassword
-|-MyTeams
-|-CreateTeam
-|-JoinTeam
-|-Leader_Layout_components
-|-LeaderLayout
-|-AddMember
-|-RemoveMember
-|-ChangeRole
-|-Member_Layout_components
-|-MemberLayout
-|-Mutal_components
-|-AllTeamTasks
-|-CreateTask
-|-MyTasks
-|-
+Manager/
+│
+├── team-project-backend/ # Backend API
+│ ├── node_modules/
+│ ├── middleware/
+│ │ └── verifytoken.js
+│ ├── routes/
+│ │ ├── teams.js
+│ │ ├── users.js
+│ │ └── teamMembers.js
+│ ├── .env
+│ ├── .gitignore
+│ ├── package-lock.json
+│ ├── package.json
+│ └── server.js
+│
+├── team-project-frontend/ # Frontend Application
+│ ├── node_modules/
+│ ├── public/
+│ ├── src/
+│ │ ├── assets/ # For images
+│ │ ├── components/
+│ │ │ ├── Home/
+│ │ │ ├── About/
+│ │ │ ├── Login/
+│ │ │ ├── Register/
+│ │ │ ├── Public_Layout_components/
+│ │ │ │ ├── Footer/
+│ │ │ │ ├── Navbar/
+│ │ │ │ └── Public-Layout/
+│ │ │ ├── Dashboard_Layout_components/
+│ │ │ │ ├── Dashboard_Layout/
+│ │ │ │ ├── MainPage/
+│ │ │ │ ├── MyProfile/
+│ │ │ │ ├── EditProfile/
+│ │ │ │ ├── ChangePassword/
+│ │ │ │ ├── MyTeams/
+│ │ │ │ ├── CreateTeam/
+│ │ │ │ └── JoinTeam/
+│ │ │ ├── Leader_Layout_components/
+│ │ │ │ ├── LeaderLayout/
+│ │ │ │ ├── AddMember/
+│ │ │ │ ├── RemoveMember/
+│ │ │ │ └── ChangeRole/
+│ │ │ ├── Member_Layout_components/
+│ │ │ │ └── MemberLayout/
+│ │ │ ├── Mutual_components/
+│ │ │ │ ├── AllTeamTasks/
+│ │ │ │ ├── CreateTask/
+│ │ │ │ └── MyTasks/
+│
+└── README.md
